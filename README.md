@@ -1,10 +1,10 @@
-# [_**GeoFinder V2**_](https://geofinderapp.netlify.app "Live app")
+# [_**GeoFinder V2**_](https://geofindergame.netlify.app "Live app")
 
 <p align='center'>
     🌍¡Visualiza la app haciendo click en la imagen!🌍
 </p>
 <p align='center'>
-    <a href="https://geofinderapp.netlify.app"><img height="300"src="https://raw.githubusercontent.com/KingMacking/GeoFinderReact/master/src/assets/banner.png"></a>
+    <a href="https://geofindergame.netlify.app"><img height="300"src="https://raw.githubusercontent.com/KingMacking/GeoFinderReact/master/src/assets/banner.png"></a>
 </p>
 
 ## GeoFinder V2
