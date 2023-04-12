@@ -13,7 +13,7 @@ Hecha con React, Tailwind CSS y mucho amor 💜
 
 [Geofinder V1](https://github.com/KingMacking/GeoFinder)
 
-## Geography game
+## Juego geografico
 
 GeoFinder es un juego basado en la geografía en el cual tendrás que adivinar el país cada vez que juegues.
 
