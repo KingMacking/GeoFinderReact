@@ -2,7 +2,7 @@ import { useState } from "react"
 import useStats from "../../../hooks/useStats"
 
 const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, setGameStatus, gameStatus}) => {
-    const [stats, setStats] = useStats()
+    const [stats, updateStats] = useStats()
     const [currentGuess, setCurrentGuess] = useState("")
 
     const onChange = (e) => {
@@ -13,26 +13,12 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
         if ( value.name === countryToGuess.name){
             setGuesses([...guesses, value])
             setGameStatus("win")
-            setStats({
-                guessDistribution: {
-                    ...stats.guessDistribution,
-                    [guesses.length+1]: stats.guessDistribution[guesses.length+1] + 1
-                } ,
-                winCount: stats.winCount + 1,
-                timesPlayed: stats.timesPlayed + 1,
-                currentStreak: stats.currentStreak + 1,
-                maxStreak: stats.currentStreak + 1 >= stats.maxStreak ? stats.currentStreak + 1 : stats.maxStreak
-            })
+            
             e.target.value = ""
         } else {
             setGuesses([...guesses, value])
             if(guesses.length + 1 === 6){
                 setGameStatus("lose")
-                setStats({
-                    ...stats,
-                    timesPlayed: stats.timesPlayed + 1,
-                    currentStreak: 0
-                })
                 e.target.value = ""
             }
             
@@ -40,12 +26,12 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
     }
 
     return (
-        <div>
-            <select value={currentGuess?.name} disabled={gameStatus !== null ? true : false} onChange={onChange}>
-                <option value="" label="Selecciona un país" />
+        <div className="flex justify-center w-full">
+            <select className="px-2 py-3 border rounded-lg w-[300px] md:w-96 font-text text-lg dark:bg-black" value={currentGuess?.name} disabled={gameStatus !== null ? true : false} onChange={onChange}>
+                <option className="font-text" value="" label="Selecciona un país" />
                 {
                     countriesData.map(country => {
-                        return <option key={country.name} value={JSON.stringify(country)} label={country.name} />
+                        return <option className="font-text" key={country.name} value={JSON.stringify(country)} label={country.name} />
                     })
                 }
             </select>

@@ -14,6 +14,10 @@ export default {
             grey: "#2F2F2F",
             success: "#77D672",
             error: "#E96060"
+        },
+        fontFamily: {
+            title: ['Nunito', 'sans-serif'],
+            text: ['PT Sans', 'sans-serif']
         }
     },
     plugins: [],

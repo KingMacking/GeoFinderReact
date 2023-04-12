@@ -4,31 +4,36 @@ import Modal from "../Modal/Modal"
 const HowToPlay = ({showHelp, setShowHelp}) => {
     return (
         <Modal title="Como jugar" show={showHelp} onClose={() => setShowHelp(false)}>
-            <h3>GeoFinder</h3>
-            <p>GeoFinder es un juego geografico en el cual tendras que adivinar el pais que se te asigna al entrar a la pagina.</p>
-            <p>Para esto inicialmente deberas seleccionar un pais de la lista, una vez seleccionado, se te daran una cantidad de pistas con las cuales deberas trabajar para adivinar el pais que te toco</p>
-            <ul>
-                <li className="">
-                    <h4 className="flex items-center gap-2"><Icon icon="bx:world" inline={true} />Continente: </h4>
-                    <p>Indica si el continente es el mismo, de ser el mismo el icono se volvera de color verde, de lo contrario se tornara rojo.</p>
-                </li>
-                <li className="">
-                    <h4 className="flex items-center gap-2"><Icon icon="mdi:map-marker-distance" inline={true} />Distancia: </h4>
-                    <p>Indica en kilometros la distancia hacia el pais que debes adivinar partiendo desde el que seleccionaste.</p>
-                </li>
-                <li className="">
-                    <h4 className="flex items-center gap-2"><Icon icon="ic:round-arrow-circle-right" />Direccion: </h4>
-                    <p>Indica la direccion en la que se encuentra el pais a adivinar partiendo desde el seleccionado.</p>
-                </li>
-                <li className="">
-                    <h4 className="flex items-center gap-2"><Icon icon="bx:world" inline={true} />Area: </h4>
-                    <p>Indica si el area area del pais a adivinar es menor o mayor a la del seleccionado, si es mayor la flecha apuntara hacia arriba, de lo contrario lo hara hacia abajo.</p>
-                </li>
-                <li className="">
-                    <h4 className="flex items-center gap-2"><Icon icon="bx:world" inline={true} />Población: </h4>
-                    <p>Indica si la poblacion del pais a adivinar es mayor o menor que la del seleccionado, si es mayor el icono mostrara una persona con un "+", de caso contrario lo hara pero con un "-"</p>
-                </li>
-            </ul>
+            <section className="px-3 py-2">
+                <header className="mb-6">
+                    <h3 className="text-lg font-semibold md:text-2xl w-fit font-title">GeoFinder</h3>
+                    <p className="my-2 text-sm md:text-base font-text">GeoFinder es un juego geográfico en el cual tendrás que adivinar el país que se te asigna al entrar en la página.</p>
+                    <p className="my-2 text-sm md:text-base font-text">Para esto, inicialmente deberás seleccionar un país de la lista. Una vez seleccionado, se te darán una cantidad de pistas con las cuales deberás trabajar para adivinar el país que te tocó.</p>
+                </header>
+                <ul>
+                    <h3 className="text-lg font-semibold md:text-2xl w-fit font-title">Pistas</h3>
+                    <li className="my-4">
+                        <h4 className="flex items-center gap-2 mb-1 underline md:text-lg underline-offset-2 font-title"><Icon className="text-2xl" icon="bx:world" inline={true} />Continente: </h4>
+                        <p className="text-sm md:text-base font-text">Indica si el continente es el mismo. De ser el mismo, el icono se volverá de color verde. De lo contrario, se tornará rojo.</p>
+                    </li>
+                    <li className="my-4">
+                        <h4 className="flex items-center gap-2 mb-1 underline md:text-lg underline-offset-2 font-title"><Icon className="text-2xl" icon="mdi:map-marker-distance" inline={true} />Distancia: </h4>
+                        <p className="text-sm md:text-base font-text">Indica en kilómetros la distancia hacia el país que debes adivinar, partiendo desde el que seleccionaste.</p>
+                    </li>
+                    <li className="my-4">
+                        <h4 className="flex items-center gap-2 mb-1 underline md:text-lg underline-offset-2"><Icon className="text-2xl" icon="ic:round-arrow-circle-right" />Dirección: </h4>
+                        <p className="text-sm md:text-base font-text">Indica la dirección en la que se encuentra el país a adivinar, partiendo desde el seleccionado.</p>
+                    </li>
+                    <li className="my-4">
+                        <h4 className="flex items-center gap-2 mb-1 underline md:text-lg underline-offset-2 font-title"><Icon className="text-2xl" icon="mdi:surface-area" inline={true} />Area: </h4>
+                        <p className="text-sm md:text-base font-text">Indica si el área del país a adivinar es menor o mayor que la del seleccionado. Si es mayor, la flecha apuntará hacia arriba; de lo contrario, lo hará hacia abajo.</p>
+                    </li>
+                    <li className="my-4">
+                        <h4 className="flex items-center gap-2 mb-1 underline md:text-lg underline-offset-2 font-title"><Icon className="text-2xl" icon="material-symbols:person-rounded" />Población: </h4>
+                        <p className="text-sm md:text-base font-text">Indica si la población del país a adivinar es mayor o menor que la del seleccionado. Si es mayor, el icono mostrará una persona con un "+"; de lo contrario, lo hará con un "-".</p>
+                    </li>
+                </ul>
+            </section>
         </Modal>
     )
 }

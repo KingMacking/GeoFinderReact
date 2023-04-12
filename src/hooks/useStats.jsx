@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import useLocalStorage from "./useLocalStorage"
 
 const useStats = () => {
-    const [stats, setStats] = useLocalStorage("stats", "")
+    const [stats, setStats] = useLocalStorage("stats", {})
     const userStats = {
         guessDistribution: {
             1: 0,
@@ -18,8 +18,15 @@ const useStats = () => {
         timesPlayed : 0,
     }
     useEffect(() => {
-        !stats && setStats(userStats)
+        if(Object.keys(stats).length === 0){
+            setStats(userStats)
+        }
     }, [])
-    return [stats, setStats]
+
+    const updateStats = (newStats) => {
+        setStats(newStats)
+    }
+
+    return [stats, updateStats]
 }
 export default useStats
