@@ -20,6 +20,8 @@ export default {
             text: ['PT Sans', 'sans-serif']
         }
     },
-    plugins: [],
+    plugins: [
+        require('tailwind-scrollbar'),
+    ],
 }
 
