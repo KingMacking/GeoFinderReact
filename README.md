@@ -4,7 +4,7 @@
     🌍¡Visualiza la app haciendo click en la imagen!🌍
 </p>
 <p align='center'>
-    <a href="https://geofinderapp.netlify.app"><img height="80"src="https://github.com/KingMacking/GeoFinderReact/blob/master/src/assets/gf-logo.svg"></a>
+    <a href="https://geofinderapp.netlify.app"><img height="80"src="https://raw.githubusercontent.com/KingMacking/GeoFinderReact/master/src/assets/banner.png"></a>
 </p>
 
 ## GeoFinder V2
