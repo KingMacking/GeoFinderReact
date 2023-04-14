@@ -46,7 +46,7 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
                         'w-[300px] md:w-96 px-2 py-3 border rounded-lg', 
                         isFocused ? 'border-primary' : 'border-black dark:border-white',
                     ),
-                    menu: () => 'dark:bg-black bg-white border rounded-lg mt-2 px-2 py-3',
+                    menu: () => 'dark:bg-black bg-white border rounded-lg mt-2 px-2 py-2',
                     option: ({isFocused}) => 
                         clsx(
                             'py-1 px-2 rounded',
