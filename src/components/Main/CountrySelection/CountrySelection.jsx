@@ -36,7 +36,6 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
             <Select
                 value={currentGuess}
                 ref={inputReference}
-                defaultMenuIsOpen
                 autoFocus={true}
                 options={options} 
                 closeMenuOnSelect={true}
