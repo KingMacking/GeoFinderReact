@@ -22,9 +22,10 @@ const Main = () => {
     const [countryToGuess, setCountryToGuess] = useState(null)
     const [guesses, setGuesses] = useState([])
     const [gameStatus, setGameStatus] = useState(null)
+    const [currentGuess, setCurrentGuess] = useState(null)
     
     const [showStats, setShowStats] = useState(false)
-    const [showHelp, setShowHelp] = useState(true)
+    const [showHelp, setShowHelp] = useState(false)
 
     useEffect(() => {
         if(gameStatus === "win"){
@@ -70,6 +71,7 @@ const Main = () => {
         setCountryToGuess(countriesData[Math.floor((Math.random()*countriesData.length))])
         setGuesses([])
         setGameStatus(null)
+        setCurrentGuess(null)
         console.log(stats);
     }
 
@@ -95,7 +97,7 @@ const Main = () => {
                             </button>
                         </div>
                         <Flag showFlag={gameStatus !== null} country={countryToGuess} />
-                        <CountrySelection setGuesses={setGuesses} guesses={guesses} countriesData={countriesData} countryToGuess={countryToGuess} setGameStatus={setGameStatus} gameStatus={gameStatus} />
+                        <CountrySelection currentGuess={currentGuess} setCurrentGuess={setCurrentGuess} setGuesses={setGuesses} guesses={guesses} countriesData={countriesData} countryToGuess={countryToGuess} setGameStatus={setGameStatus} gameStatus={gameStatus} />
                         <Guesses countryToGuess={countryToGuess} guesses={guesses} />
                     </main>
                     <GameEndInfo gameStatus={gameStatus} resetGame={resetGame} countryToGuess={countryToGuess} />

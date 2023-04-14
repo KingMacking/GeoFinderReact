@@ -1,40 +1,59 @@
 import { useState } from "react"
-import useStats from "../../../hooks/useStats"
+import Select from 'react-select'
+import { clsx } from 'clsx';
 
-const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, setGameStatus, gameStatus}) => {
-    const [stats, updateStats] = useStats()
-    const [currentGuess, setCurrentGuess] = useState("")
+const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, setGameStatus, gameStatus, currentGuess, setCurrentGuess}) => {
+    
+    const options = countriesData.map(country => country = {
+        label: country.name,
+        value: JSON.stringify(country)
+    })
 
     const onChange = (e) => {
-        setCurrentGuess(e.target.value.name)
+        setCurrentGuess(e.value.name)
 
-        const value = JSON.parse(e.target.value)
+        const value = JSON.parse(e.value)
         
         if ( value.name === countryToGuess.name){
             setGuesses([...guesses, value])
             setGameStatus("win")
             
-            e.target.value = ""
+            setCurrentGuess(null)
         } else {
             setGuesses([...guesses, value])
             if(guesses.length + 1 === 6){
                 setGameStatus("lose")
-                e.target.value = ""
+                setCurrentGuess(null)
             }
-            
         }
     }
 
     return (
         <div className="flex justify-center w-full">
-            <select className="px-2 py-3 border rounded-lg w-[300px] md:w-96 font-text text-lg dark:bg-black" value={currentGuess?.name} disabled={gameStatus !== null ? true : false} onChange={onChange}>
-                <option className="font-text" value="" label="Selecciona un país" />
-                {
-                    countriesData.map(country => {
-                        return <option className="font-text" key={country.name} value={JSON.stringify(country)} label={country.name} />
-                    })
-                }
-            </select>
+            <Select 
+                value={currentGuess}
+                autoFocus={true}
+                options={options} 
+                closeMenuOnSelect={true} 
+                unstyled 
+                isSearchable={true}
+                disabled={gameStatus !== null ? true : false}
+                onChange={onChange}
+                placeholder="Selecciona un país..."
+                classNames={{
+                    control: ({isFocused}) => 
+                    clsx(
+                        'w-[300px] md:w-96 px-2 py-3 border rounded-lg', 
+                        isFocused ? 'border-primary' : 'border-black dark:border-white',
+                    ),
+                    menu: () => 'dark:bg-black bg-white border rounded-lg mt-2 px-2 py-3',
+                    option: ({isFocused}) => 
+                        clsx(
+                            'py-1 px-2 rounded',
+                            isFocused && 'bg-primary'
+                        )
+                }}
+            />
         </div>
     )
 }
