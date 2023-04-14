@@ -1,13 +1,18 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Select from 'react-select'
 import { clsx } from 'clsx';
 
 const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, setGameStatus, gameStatus, currentGuess, setCurrentGuess}) => {
-    
+    const inputReference = useRef(null)
+
     const options = countriesData.map(country => country = {
         label: country.name,
         value: JSON.stringify(country)
     })
+    
+    const resetFocus = () => {
+        
+    }
 
     const onChange = (e) => {
         setCurrentGuess(e.value.name)
@@ -17,34 +22,38 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
         if ( value.name === countryToGuess.name){
             setGuesses([...guesses, value])
             setGameStatus("win")
-            
             setCurrentGuess(null)
         } else {
             setGuesses([...guesses, value])
+            
             if(guesses.length + 1 === 6){
                 setGameStatus("lose")
                 setCurrentGuess(null)
             }
         }
+        inputReference.current.isFocused(true)
     }
+
 
     return (
         <div className="flex justify-center w-full">
             <Select 
                 value={currentGuess}
+                ref={inputReference}
                 autoFocus={true}
                 options={options} 
                 closeMenuOnSelect={true} 
                 unstyled 
                 isSearchable={true}
-                disabled={gameStatus !== null ? true : false}
+                isDisabled={gameStatus !== null ? true : false}
                 onChange={onChange}
                 placeholder="Selecciona un país..."
                 classNames={{
-                    control: ({isFocused}) => 
+                    control: ({isFocused, isDisabled}) => 
                     clsx(
                         'w-[300px] md:w-96 px-2 py-3 border rounded-lg', 
                         isFocused ? 'border-primary' : 'border-black dark:border-white',
+                        isDisabled && 'opacity-60'
                     ),
                     menu: () => 'dark:bg-black bg-white border rounded-lg mt-2 px-2 py-2',
                     option: ({isFocused}) => 
