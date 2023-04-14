@@ -91,7 +91,7 @@ const Main = () => {
                             <button onClick={() => setShowStats(true)}>
                                 <Icon className="text-4xl" icon="mdi:graph-box" />
                             </button>
-                            <button onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")} className="flex items-center" ><Icon className="p-2 text-4xl border rounded-full border-grey dark:text-white text-blackDarker" icon={colorMode === "dark" ? "ph:moon-fill" : "ph:sun-fill"}/></button>
+                            <button onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")} className="flex items-center" ><Icon className="p-2 text-4xl border rounded-full border-greyLight dark:text-white text-blackDarker" icon={colorMode === "dark" ? "ph:moon-fill" : "ph:sun-fill"}/></button>
                             <button onClick={() => setShowHelp(true)}>
                                 <Icon className="text-4xl" icon="mdi:question-mark-box" />
                             </button>

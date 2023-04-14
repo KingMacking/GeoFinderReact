@@ -11,9 +11,11 @@ export default {
             primary: "#D9132D",
             white: "#FCFCFC",
             black: "#171717",
-            grey: "#2F2F2F",
+            greyDark: "#232323",
+            greyLight: "#2F2F2F",
             success: "#77D672",
-            error: "#E96060"
+            error: "#E96060",
+            transparent: "transparent"
         },
         fontFamily: {
             title: ['Nunito', 'sans-serif'],
@@ -21,7 +23,7 @@ export default {
         }
     },
     plugins: [
-        require('tailwind-scrollbar'),
+        require('tailwind-scrollbar')({ nocompatible: true }),
     ],
 }
 

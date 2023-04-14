@@ -9,10 +9,6 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
         label: country.name,
         value: JSON.stringify(country)
     })
-    
-    const resetFocus = () => {
-        
-    }
 
     const onChange = (e) => {
         setCurrentGuess(e.value.name)
@@ -36,13 +32,14 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
 
 
     return (
-        <div className="flex justify-center w-full">
-            <Select 
+        <div className="flex justify-center w-full ">
+            <Select
                 value={currentGuess}
                 ref={inputReference}
+                defaultMenuIsOpen
                 autoFocus={true}
                 options={options} 
-                closeMenuOnSelect={true} 
+                closeMenuOnSelect={true}
                 unstyled 
                 isSearchable={true}
                 isDisabled={gameStatus !== null ? true : false}
@@ -51,15 +48,16 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
                 classNames={{
                     control: ({isFocused, isDisabled}) => 
                     clsx(
-                        'w-[300px] md:w-96 px-2 py-3 border rounded-lg', 
+                        'w-[300px] md:w-96 px-2 py-3 border rounded-lg hover:cursor-pointer', 
                         isFocused ? 'border-primary' : 'border-black dark:border-white',
-                        isDisabled && 'opacity-60'
+                        isDisabled && 'opacity-60',
                     ),
                     menu: () => 'dark:bg-black bg-white border rounded-lg mt-2 px-2 py-2',
+                    menuList: () => 'scrollbar-thin scrollbar-thumb-primary scrollbar-thumb-rounded-sm scrollbar-track-greyDark scrollbar-track-rounded-sm',
                     option: ({isFocused}) => 
                         clsx(
-                            'py-1 px-2 rounded',
-                            isFocused && 'bg-primary'
+                            'py-1 px-2 rounded border',
+                            isFocused ? 'border-primary' : 'border-transparent',
                         )
                 }}
             />
