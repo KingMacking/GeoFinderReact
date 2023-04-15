@@ -13,7 +13,7 @@ export default {
             black: "#171717",
             greyDark: "#232323",
             greyLight: "#2F2F2F",
-            success: "#77D672",
+            success: "#5D9A5A",
             error: "#E96060",
             transparent: "transparent"
         },

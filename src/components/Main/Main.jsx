@@ -103,7 +103,6 @@ const Main = () => {
                     <GameEndInfo gameStatus={gameStatus} resetGame={resetGame} countryToGuess={countryToGuess} />
                 </section>
             }
-            {gameStatus === "win" && <Confetti width={width} height={height} />}
             <Stats stats={stats} showStats={showStats} setShowStats={setShowStats} />
             <HowToPlay showHelp={showHelp} setShowHelp={setShowHelp} />
         </main>

@@ -3,10 +3,10 @@ import { Icon } from "@iconify/react"
 const GameEndInfo = ({gameStatus, countryToGuess, resetGame}) => {
     return (
         <footer className={`mt-4 ${gameStatus === null && "hidden"}`}>
-            <section className="mb-2">
+            <section className="mb-2 w-[300px] md:w-96">
                 <header className="flex flex-col items-center">
-                    <h3 className="text-2xl font-title">{gameStatus === "lose" ? "¡Se te acabaron los intentos!" : "¡Correcto!"}</h3>
-                    <p className="text-lg font-text">El pais oculto era</p>
+                    <h3 className={`text-2xl font-title px-4 rounded-lg py-2 font-semibold ${gameStatus === "lose" ? "bg-error" : "bg-success"}`}>{gameStatus === "lose" ? "¡Se te acabaron los intentos!" : "¡Correcto!"}</h3>
+                    <p className="mt-2 text-lg font-text">El país oculto era</p>
                     <p className="w-full max-w-[300px] md:max-w-[24rem] py-3 my-2 text-5xl text-center border rounded-lg font-text overflow-ellipsis">{countryToGuess?.name}</p>
                 </header>
                 <article className="my-6">
