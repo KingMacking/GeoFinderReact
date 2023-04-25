@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react"
 
 const Footer = () => {
     return (
-        <footer className="flex flex-col items-center mt-12 font-text">
+        <footer className="flex flex-col items-center py-2 mt-12 font-text">
             <p className="text-lg">Developed by <span className="font-bold">Matias Atzori</span></p>
             <div className="flex justify-center gap-2 text-6xl">
                 <a href="https://github.com/KingMacking/GeoFinderReact"><Icon icon="mdi:github" /></a>

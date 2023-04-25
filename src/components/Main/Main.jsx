@@ -5,18 +5,15 @@ import Flag from "./Flag/Flag"
 import { Pulsar } from "@uiball/loaders"
 import Guesses from "./Guesses/Guesses"
 import CountrySelection from "./CountrySelection/CountrySelection"
-import Confetti from "react-confetti"
 import { Icon } from "@iconify/react"
 import Stats from "../Stats/Stats"
 import HowToPlay from "../HowToPlay/HowToPlay"
 import GameEndInfo from "./GameEndInfo/GameEndInfo"
 import useColorMode from "../../hooks/useColorMode"
 import useStats from "../../hooks/useStats"
-import useWindowSize from "../../hooks/useWindowSize"
 
 const Main = () => {
     const [colorMode, setColorMode] = useColorMode()
-    const {width, height} = useWindowSize()
     const [stats, updateStats] = useStats()
 
     const [countryToGuess, setCountryToGuess] = useState(null)
@@ -25,7 +22,7 @@ const Main = () => {
     const [currentGuess, setCurrentGuess] = useState(null)
     
     const [showStats, setShowStats] = useState(false)
-    const [showHelp, setShowHelp] = useState(false)
+    const [showHelp, setShowHelp] = useState(true)
 
     useEffect(() => {
         if(gameStatus === "win"){
@@ -72,7 +69,6 @@ const Main = () => {
         setGuesses([])
         setGameStatus(null)
         setCurrentGuess(null)
-        console.log(stats);
     }
 
     return (
