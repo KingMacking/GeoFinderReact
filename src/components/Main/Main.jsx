@@ -85,15 +85,26 @@ const Main = () => {
                     <main>
                         <div className="flex justify-between w-full">
                             <button onClick={() => setShowStats(true)}>
-                                <Icon className="text-4xl" icon="mdi:graph-box" />
+                                <Icon className="text-5xl" icon="mdi:graph-box" />
                             </button>
-                            <button onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")} className="flex items-center" ><Icon className="p-2 text-4xl border rounded-full border-greyLight dark:text-white text-blackDarker" icon={colorMode === "dark" ? "ph:moon-fill" : "ph:sun-fill"}/></button>
+                            <button onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")} className="flex items-center" >
+                                <Icon className="p-2 text-4xl text-black border rounded-full border-greyLight dark:text-white" icon={colorMode === "dark" ? "ph:moon-fill" : "ph:sun-fill"}/>
+                            </button>
                             <button onClick={() => setShowHelp(true)}>
-                                <Icon className="text-4xl" icon="mdi:question-mark-box" />
+                                <Icon className="text-5xl" icon="mdi:question-mark-box" />
                             </button>
                         </div>
                         <Flag showFlag={gameStatus !== null} country={countryToGuess} />
-                        <CountrySelection currentGuess={currentGuess} setCurrentGuess={setCurrentGuess} setGuesses={setGuesses} guesses={guesses} countriesData={countriesData} countryToGuess={countryToGuess} setGameStatus={setGameStatus} gameStatus={gameStatus} />
+                        <CountrySelection 
+                            currentGuess={currentGuess} 
+                            setCurrentGuess={setCurrentGuess} 
+                            setGuesses={setGuesses} 
+                            guesses={guesses} 
+                            countriesData={countriesData} 
+                            countryToGuess={countryToGuess} 
+                            setGameStatus={setGameStatus} 
+                            gameStatus={gameStatus} 
+                        />
                         <Guesses countryToGuess={countryToGuess} guesses={guesses} />
                     </main>
                     <GameEndInfo gameStatus={gameStatus} resetGame={resetGame} countryToGuess={countryToGuess} />

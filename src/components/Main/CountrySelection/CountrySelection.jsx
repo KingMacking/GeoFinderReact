@@ -43,7 +43,7 @@ const CountrySelection = ({setGuesses, countriesData, guesses, countryToGuess, s
                 isSearchable={true}
                 isDisabled={gameStatus !== null ? true : false}
                 onChange={onChange}
-                placeholder="Selecciona un país..."
+                placeholder={guesses.length > 0 ? "Selecciona un país..." : "Elige el país de inicio"} 
                 classNames={{
                     control: ({isFocused, isDisabled}) => 
                     clsx(
