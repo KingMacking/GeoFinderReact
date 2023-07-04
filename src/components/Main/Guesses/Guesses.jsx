@@ -46,23 +46,23 @@ const Guesses = ({countryToGuess, guesses}) => {
                     const direction = dir(guess, countryToGuess)
                     return (
                         <div key={index} className="grid grid-cols-12 mt-2 gap-px w-[300px] md:w-96">
-                            <p className="flex items-center justify-center col-start-1 col-end-5 text-sm text-center border rounded-md font-text md:text-lg overflow-ellipsis">{guess.name}</p>
-                            <p className={`${guess.region === countryToGuess.region ? "bg-success" : "bg-error"} flex font-text  col-start-5 col-end-6 items-center justify-center border rounded-md`}>
+                            <p title="Nombre del país" className="flex items-center justify-center col-start-1 col-end-5 text-sm text-center border rounded-md font-text md:text-lg overflow-ellipsis">{guess.name}</p>
+                            <p title="Continente" className={`${guess.region === countryToGuess.region ? "bg-success" : "bg-error"} flex font-text  col-start-5 col-end-6 items-center justify-center border rounded-md`}>
                                 <Icon icon="bx:world" inline={true} />
                             </p>
-                            <p className="flex items-center justify-center col-start-6 col-end-9 text-sm border rounded-md font-text md:text-lg">{distance} km</p>
-                            <p className="flex items-center justify-center col-start-9 col-end-10 border rounded-md font-text">
+                            <p title="Distancia" className="flex items-center justify-center col-start-6 col-end-9 text-sm border rounded-md font-text md:text-lg">{distance} km</p>
+                            <p title="Dirección" className="flex items-center justify-center col-start-9 col-end-10 border rounded-md font-text">
                                 {
                                     direction === "🎉" ? "🎉" :
                                     <Icon className={`${direction} text-2xl md:text-3xl`} icon="ic:round-arrow-circle-right" />
                                 }
                             </p>
-                            <p className="flex items-center justify-center col-start-10 col-end-12 text-sm border rounded-md font-text md:text-lg">
+                            <p title="Área" className="flex items-center justify-center col-start-10 col-end-12 text-sm border rounded-md font-text md:text-lg">
                                 {
                                     distance === 0 ? "🎉" : <span className="flex items-center"><Icon icon={`${guess.area > countryToGuess.area ? "material-symbols:keyboard-arrow-down-rounded" : "material-symbols:keyboard-arrow-up-rounded"}`} />km²</span>
                                 }
                             </p>
-                            <p className="flex items-center justify-center col-start-12 col-end-12 border rounded-md font-text">
+                            <p title="Población" className="flex items-center justify-center col-start-12 col-end-12 border rounded-md font-text">
                                 {
                                     distance === 0 ? "🎉" : <Icon icon={`${guess.population > countryToGuess.population ? "material-symbols:person-remove-rounded" : "material-symbols:person-add-rounded"}`} />
                                 }
