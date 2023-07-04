@@ -84,13 +84,13 @@ const Main = () => {
                     </header>
                     <main>
                         <div className="flex justify-between w-full">
-                            <button onClick={() => setShowStats(true)}>
+                            <button title="Estadísticas" onClick={() => setShowStats(true)}>
                                 <Icon className="text-5xl" icon="mdi:graph-box" />
                             </button>
-                            <button onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")} className="flex items-center" >
+                            <button title="Darkmode" onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")} className="flex items-center" >
                                 <Icon className="p-2 text-4xl text-black border rounded-full border-greyLight dark:text-white" icon={colorMode === "dark" ? "ph:moon-fill" : "ph:sun-fill"}/>
                             </button>
-                            <button onClick={() => setShowHelp(true)}>
+                            <button title="Ayuda" onClick={() => setShowHelp(true)}>
                                 <Icon className="text-5xl" icon="mdi:question-mark-box" />
                             </button>
                         </div>

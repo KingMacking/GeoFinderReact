@@ -10,7 +10,7 @@ function App() {
         }
     }})
     return (
-        <main className="h-full min-h-screen text-black transition-colors duration-200 ease-in-out bg-white dark:text-white dark:bg-black">
+        <main className="flex flex-col h-full min-h-screen text-black transition-colors duration-200 ease-in-out bg-white dark:text-white dark:bg-black">
             <QueryClientProvider client={client}>
                 <Main />
             </QueryClientProvider>
